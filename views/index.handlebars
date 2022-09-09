@@ -1,0 +1,28 @@
+<div class="container">
+  <form action="/" method="POST">
+    <div class="row ">
+      <!-- 直接在表單驗證網址格式 -->
+      <input class="form-control mt-5" id="originalURL" type="url" name="originalURL" placeholder="input URL here" aria-label="input URL here" required>
+    </div>
+    <div class="container mt-3" style="display:flex; align-items:center;flex-direction:column">
+      <button type="submit" class="btn btn-outline-primary">Shorten</button>
+    </div>
+  </form>
+
+  {{#if originalURL}}
+  <div class="container mt-3 alert alert-success" style="display:flex; align-items:center;flex-direction:column">
+    <h2>Success! Please use this link:</h2>  
+    <input class="form-control" id="shortURL" type="text" style="text-align:center; color:blue; background:transparent; border:none" value="{{ origin }}/{{ shortURL }}" aria-label="shortURL" disabled readonly>
+    <button type="button" onclick="copy()" class="btn btn-outline-success mt-3">Copy</button>
+  </div>
+  {{/if}}
+</div>
+
+<script>
+  function copy() {
+    const URL = document.querySelector('#shortURL')
+    navigator.clipboard.writeText(URL.value)
+      .then(() => alert('copied'))
+      .catch(error => console.log(error))
+  }
+</script>
