@@ -12,7 +12,7 @@
   {{#if originalURL}}
   <div class="container mt-3 alert alert-success" style="display:flex; align-items:center;flex-direction:column">
     <h2>Success! Please use this link:</h2>  
-    <input class="form-control" id="shortURL" type="text" style="text-align:center; color:blue; background:transparent; border:none" value="{{ origin }}/{{ shortURL }}" aria-label="shortURL" disabled readonly>
+    <input class="form-control" id="shortURL" type="text" style="text-align:center; color:blue; background:transparent; border:none" value="{{ host }}/{{ shortURL }}" aria-label="shortURL" disabled readonly>
     <button type="button" onclick="copy()" class="btn btn-outline-success mt-3">Copy</button>
   </div>
   {{/if}}
